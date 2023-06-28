@@ -1,0 +1,27 @@
+Name;Type;Data;ZoneName;Computer
+(same as parent folder);Start of Authority (SOA);[40]; agentsmith.thematrix.local.; hostmaster.thematrix.local.;TheMatrix.local;
+(same as parent folder);Name Server (NS);agentsmith.thematrix.local.;TheMatrix.local;
+(same as parent folder);Host (A);192.168.168.130;TheMatrix.local;
+(same as parent folder);Mail Exchanger (MX);[10] neo.TheMatrix.local.;TheMatrix.local;
+neo;Host (A);192.168.168.132;TheMatrix.local;
+trinity;Host (A);192.168.168.131;TheMatrix.local;
+dozer;Host (A);192.168.168.134;TheMatrix.local;
+www;Alias (CNAME);trinity.TheMatrix.local.;TheMatrix.local;
+rallly;Alias (CNAME);trinity.TheMatrix.local.;TheMatrix.local;
+www.rallly;Alias (CNAME);trinity.TheMatrix.local.;TheMatrix.local;
+theoracle;Alias (CNAME);trinity.TheMatrix.local.;TheMatrix.local;
+imap;Alias (CNAME);neo.TheMatrix.local.;TheMatrix.local;
+(same as parent folder);Start of Authority (SOA);[4]; agentsmith.thematrix.local.; hostmaster.thematrix.local.;TheMatrix.local;
+(same as parent folder);Name Server (NS);agentsmith.thematrix.local.;TheMatrix.local;
+131;Pointer (PTR);trinity.TheMatrix.local.;128.168.168.192.in-addr.arpa;agentsmith
+132;Pointer (PTR);neo.TheMatrix.local.;128.168.168.192.in-addr.arpa;agentsmith
+133;Pointer (PTR);theoracle.TheMatrix.local.;128.168.168.192.in-addr.arpa;agentsmith
+134;Pointer (PTR);dozer.TheMatrix.local.;128.168.168.192.in-addr.arpa;agentsmith
+trinity;IPv6 Host (AAAA);2001:0db8:000a:0000:0000:0000:0000:0003;
+neo;IPv6 Host (AAAA);2001:0db8:000a:0000:0000:0000:0000:0004;	
+theoracle;IPv6 Host (AAAA);2001:0db8:000a:0000:0000:0000:0000:0005;
+dozer;IPv6 Host (AAAA);2001:0db8:000a:0000:0000:0000:0000:0006;
+3;Pointer (PTR);trinity.thematrix.local;0.0.0.0.a.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa;agentsmith
+4;Pointer (PTR);neo.thematrix.local;0.0.0.0.a.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa;agentsmith
+5;Pointer (PTR);theoracle.thematrix.local;0.0.0.0.a.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa;agentsmith
+6;Pointer (PTR);dozer.thematrix.local;0.0.0.0.a.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa;agentsmith

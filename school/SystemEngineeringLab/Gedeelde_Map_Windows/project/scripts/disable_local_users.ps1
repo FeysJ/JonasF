@@ -1,0 +1,1 @@
+﻿Get-Localuser | Disable-LocalUser -Confirm:$false

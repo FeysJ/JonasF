@@ -1,0 +1,6 @@
+Dit is een hulpbestand enkel van/voor Jonas voor het script install_Win10.ps1
+
+D:\school\Windows10.iso
+D:\school
+C:\Users\Jasmien\Desktop\SEP-2223-sep-2223-t02\Opdracht_PCs
+C:\Users\Jasmien\Desktop\SEP-2223-sep-2223-t02\Opdracht_PCs\Scripts\win_postinstall.cmd

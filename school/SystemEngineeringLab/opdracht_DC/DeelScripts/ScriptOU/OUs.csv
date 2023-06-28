@@ -1,0 +1,12 @@
+name;path
+DomainWorkstations;DC=TheMatrix,DC=local
+PCs;OU=DomainWorkstations,DC=TheMatrix,DC=local
+Cast;OU=PCs,OU=DomainWorkstations,DC=TheMatrix,DC=local
+Crew;OU=PCs,OU=DomainWorkstations,DC=TheMatrix,DC=local
+Directors;OU=Crew,OU=PCs,OU=DomainWorkstations,DC=TheMatrix,DC=local
+Servers;OU=DomainWorkstations,DC=TheMatrix,DC=local
+DomainUsers;DC=TheMatrix,DC=local
+Cast;OU=DomainUsers,DC=TheMatrix,DC=local
+Crew;OU=DomainUsers,DC=TheMatrix,DC=local
+Directors;OU=Crew,OU=DomainUsers,DC=TheMatrix,DC=local
+Producers;OU=Crew,OU=DomainUsers,DC=TheMatrix,DC=local

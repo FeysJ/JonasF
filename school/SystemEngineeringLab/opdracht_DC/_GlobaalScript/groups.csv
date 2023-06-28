@@ -1,0 +1,4 @@
+Name;Scope;GroupCategory;Path;Description
+GRP_Cast;Global;Security;OU=Cast,OU=DomainUsers,DC=TheMatrix,DC=local;Alle leden van de Cast OU
+GRP_Crew;Global;Security;OU=Crew,OU=DomainUsers,DC=TheMatrix,DC=local;Alle leden van de crew OU
+GRP_Directors;Global;Security;OU=Directors,OU=Crew,OU=DomainUsers,DC=TheMatrix,DC=local;Alle directors

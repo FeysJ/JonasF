@@ -1,0 +1,6 @@
+Dit is een hulpbestand enkel van/voor Lara voor het script install_Win10.ps1
+
+C:\VirtualBox VMs\Windows10.iso
+C:\VirtualBox VMs
+C:\Users\laravw\Desktop\SEP\SEP-2223-sep-2223-t02\Gedeelde_Map_Windows
+C:\Users\laravw\Desktop\SEP\SEP-2223-sep-2223-t02\Opdracht_PCs\Scripts\win_postinstall.cmd

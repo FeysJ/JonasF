@@ -1,0 +1,14 @@
+﻿Type,OU,voornaam,familienaam,SamAccountName,wachtwoord,departement
+computer,"OU=Servers,OU=DomainWorkstations,DC=TheMatrix,DC=local",,,Neo,,
+computer,"OU=Servers,OU=DomainWorkstations,DC=TheMatrix,DC=local",,,Trinity,,
+computer,"OU=Servers,OU=DomainWorkstations,DC=TheMatrix,DC=local",,,AgentSmith,,
+computer,"OU=Cast,OU=PCs,OU=DomainWorkstations,DC=TheMatrix,DC=local",,,PCCast1,,
+computer,"OU=Cast,OU=PCs,OU=DomainWorkstations,DC=TheMatrix,DC=local",,,PCCast2,,
+computer,"OU=Directors,OU=Crew,OU=PCs,OU=DomainWorkstations,DC=TheMatrix,DC=local",,,DirectorPC,,
+computer,"OU=Crew,OU=PCs,OU=DomainWorkstations,DC=TheMatrix,DC=local",,,PCCrew1,,
+computer,"OU=Crew,OU=PCs,OU=DomainWorkstations,DC=TheMatrix,DC=local",,,PCCrew2,,
+user,"OU=Directors,OU=Crew,OU=DomainUsers,DC=TheMatrix,DC=local",Lana,Wachowski,lana.wachowski,VeranderMij%123,Directors
+user,"OU=Directors,OU=Crew,OU=DomainUsers,DC=TheMatrix,DC=local",Lilly,Wachowski,lilly.wachowski,VeranderMij%123,Directors
+user,"OU=Producers,OU=Crew,OU=DomainUsers,DC=TheMatrix,DC=local",Joel,Silver,joel.silver,VeranderMij%123,Producers
+user,"OU=Cast,OU=DomainUsers,DC=TheMatrix,DC=local",Keanu,Reeves,keanu.reeves,VeranderMij%123,Cast
+user,"OU=Cast,OU=DomainUsers,DC=TheMatrix,DC=local",Carrie-Anne,Moss,carrie-ann.moss,VeranderMij%123,Cast

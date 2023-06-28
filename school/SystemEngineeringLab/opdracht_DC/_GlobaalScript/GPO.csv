@@ -1,0 +1,9 @@
+Id;TargetName;OU
+DAE24E4F-24B6-4CC6-96F8-C711180FBF82;CPT_Allow_logon_crew;OU=Crew,OU=PCs,OU=DomainWorkstations,DC=TheMatrix,DC=local
+082EA591-D315-4FD8-91E3-2F52A81D30FE;CPT_Allow_logon_directors;OU=DomainWorkstations,DC=TheMatrix,DC=local
+6833E35B-7D10-4D0E-A79B-12281B2BCE70;CPT_Allow_logon_directors_cast;OU=Cast,OU=PCs,OU=DomainWorkstations,DC=TheMatrix,DC=local
+D9CC86B0-DD2E-4495-80F7-FC09577B636A;CPT_disable_local_accounts
+29039818-570B-4BCC-9945-7AD2257DA265;USR_prevent_adding_toolbars;OU=DomainUsers,DC=TheMatrix,DC=local
+84BB853A-D83A-4BB3-AB7D-9963A6B33227;USR_prevent-access-control-panel;OU=DomainUsers,DC=TheMatrix,DC=local
+3959D807-A8F0-493C-ABC1-80CCBA77E043;USR_prevent-access-network-adapter;OU=Cast,OU=DomainUsers,DC=TheMatrix,DC=local
+1E929C4E-E4E4-4E82-A6B7-C9C0F4B11452;USR_Fileshares;OU=DomainUsers,DC=TheMatrix,DC=local

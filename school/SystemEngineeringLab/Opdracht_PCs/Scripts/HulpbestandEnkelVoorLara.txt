@@ -1,0 +1,10 @@
+Dit is een hulpbestand enkel van/voor Lara voor het script install_Win10.ps1
+
+C:\Users\larav\VirtualBox VMs\Windows10.iso
+C:\Users\larav\VirtualBox VMs
+C:\Users\larav\OneDrive - Hogeschool Gent\Cursussen_2022-2023_sem2\System_Engineering_Project\SEP-2223-sep-2223-t02\Gedeelde_Map_Windows
+C:\Users\larav\OneDrive - Hogeschool Gent\Cursussen_2022-2023_sem2\System_Engineering_Project\SEP-2223-sep-2223-t02\Opdracht_PCs\Scripts\win_postinstall.cmd
+
+
+
+OUD: C:\Users\larav\OneDrive - Hogeschool Gent\Cursussen_2022-2023_sem2\System_Engineering_Project\Gedeelde-map

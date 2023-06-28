@@ -1,0 +1,6 @@
+Dit is een hulpbestand enkel van/voor Joost voor het script install_Win10.ps1
+
+D:\TILE2\system engineering project\downloads\Windows10.iso
+D:\TILE2\system engineering project\VMs
+C:\Joost files\Bachelor ICT\system engineering project\SharedFolder
+C:\Joost files\Bachelor ICT\system engineering project\SharedFolder\project\scripts\win_postinstall.cmd

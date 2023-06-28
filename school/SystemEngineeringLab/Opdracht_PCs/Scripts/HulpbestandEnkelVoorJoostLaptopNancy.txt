@@ -1,0 +1,6 @@
+Dit is een hulpbestand enkel van/voor Joost voor het script install_Win10.ps1
+
+C:\Users\Local Admin\Desktop\Labo\start installPCnancy\project\Windows10.iso
+C:\Users\Local Admin\Desktop\Labo\start installPCnancy\project\vdi
+C:\Users\Local Admin\Desktop\Labo\start installPCnancy
+C:\Users\Local Admin\Desktop\Labo\start installPCnancy\project\scripts\win_postinstall.cmd

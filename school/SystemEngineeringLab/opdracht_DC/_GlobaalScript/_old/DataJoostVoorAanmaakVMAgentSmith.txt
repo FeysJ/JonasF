@@ -1,0 +1,5 @@
+Data voor aanmaak VM AgentSmith
+locatieIso		D:\TILE2\system engineering project\downloads\nl_windows_server_2019_x64_dvd_82f9a152.iso
+LocatieVM:		D:\VitualBoxVMs\System Engineering project
+SharedFolder:	C:\Joost files\Bachelor ICT\system engineering project\SharedFolder
+postinstallscript	C:\Joost files\Bachelor ICT\system engineering project\SEP-2223-sep-2223-t02\opdracht_DC\_GlobaalScript\winServer_postinstall.cmd
