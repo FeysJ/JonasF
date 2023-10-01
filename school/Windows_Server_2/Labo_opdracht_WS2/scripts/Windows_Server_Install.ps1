@@ -22,7 +22,7 @@ function ControleerCSV($bestand) {
 function BepaalAbsolutePaden {
     $keuze = Read-Host "Wenst u de paden manueel in te geven (Nee: druk enter)"
     if ($keuze -eq ""){
-        $csv = "..\csv\paths.csv"
+        $csv = "D:\Jonas\JonasF\school\Windows_Server_2\Labo_opdracht_WS2\scripts\PathsInstallServer.csv"
         $antwoord = Read-Host "Default locatie voor de csv-bestand met de paden: $csv. `nWenst u deze te wijzigen (Nee: druk enter)"
         if ($antwoord -ne "") { 
             $csv = Read-Host "Geef het absolute pad van het csv-bestand in, zonder aanhalingstekens"
@@ -107,21 +107,20 @@ Vboxmanage modifyvm $vmname `
     --draganddrop bidirectional 
 Write-host "clipboard en drag'n drop zijn bidirectional na installatie guest editions"
 
-$keuze = Read-Host "Wenst u een bridged adapter te gebruiken (ja: druk enter)"
-    if ($keuze -eq ""){
-           $NicAdapt = Get-NetAdapter -name Ethernet
-#           $NicAdaptNaam = $NicAdapt.InterfaceDescription
-           VBoxManage modifyvm $vmname `
-            --nic1 bridged `
-            --bridgeadapter1 $NicAdapt.InterfaceDescription
-        Write-Host "De netwerkkaart werd als bridged ingesteld."
-        }
-    else {
-        VBoxManage modifyvm $vmname `
-            --nic1 intnet `
-            --intnet1 "servers"
-        Write-Host "De netwerkkaarten werden ingesteld als intnet."
-    }
+
+VBoxManage natnetwork add --netname WS2 --network "192.168.23.0/24" --enable --dhcp off
+
+
+ 
+#$NicAdapt = Get-NetAdapter -name Ethernet
+#$NicAdaptNaam = $NicAdapt.InterfaceDescription
+VBoxManage modifyvm $vmname `
+    --nic1 natnetwork
+Write-Host "De netwerkkaart werd als NAT network ingesteld."
+        
+VBoxManage modifyvm $vmname `
+--nat-network1=WS2
+
 $vdi=$global:vdipath + "\" + $vmname + ".vdi"
 Write-host "de hd wordt : $vdi"
 VBoxManage createmedium disk `

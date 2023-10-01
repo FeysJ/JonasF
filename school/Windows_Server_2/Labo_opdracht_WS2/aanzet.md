@@ -30,20 +30,24 @@
 - Besturingssysteem: Windows server 2019 GUI
 - IP-adres: 192.168.23.1/24
 - Rollen
-  - Active Directory DomeinController
+  - Active Directory Domain Controller
   - DNS
   - DHCP
 
 #### Motivatie
 
-
-
+Het is een logische keuze om zowel de DC, DNS en DHCP rollen op eenzelfde server te installeren.
+Na de installatie van de DC rol op de server kan DNS en DHCP eenvoudig worden geïntegreerd in het script samen met de overige configuratie.
+De keuze van de recources is gebasseerd op de minimale vereisten aangeraden door Microsoft.
+Bij een GUI installatie wordt aangeraden om minimaal 32 GB vrije opslagruimte te hebben.
+Om voldoende ruimte te hebben voor de overige rollen opteer ik voor 40 GB.
+<https://learn.microsoft.com/en-us/windows-server/get-started/hardware-requirements>
 
 #### Recources
 
-- 2GB RAM
-- 1 CPU kern
-- 32 GB vDisk
+- 2GB vRAM
+- 2 vCPU kernen
+- 40 GB vDisk
 
 ### Server 2: Beta
 
@@ -54,13 +58,22 @@
 - Rollen
   - DNS redundante server
   - CA
+  - SQL Server
 
 #### Motivatie
 
+DNS en Certification Authority nemen beide niet veel recources in.
+Daarmee maak ik de keuze om deze te combineren met de SQL server.
+Indien blijkt dat ik over voldoende reserve recources beschik om de SQL server apart te zetten, dan maak ik de keuze om dit alsnog te doen.
+Ik combineer ze nu vooral omdat ik nog geen zicht heb op hoeveel recources Sharepoint juist nodig heeft.
+
+https://www.microsoft.com/en-us/download/details.aspx?id=101064
+
 #### Recources
 
-- 2GB RAM
-- 1 CPU kern
+- 2GB vRAM
+- 1 vCPU kern
+- 40 GB vDisk
 
 ### Server 3: Charlie
 
@@ -70,34 +83,23 @@
 - IP-adres: 192.168.23.3/24
 - Rollen
   - Sharepoint server
-  - SQL Server 40 GB
 
 #### Motivatie
 
+Het lijkt mij logisch om de sharepoint server volledig apart te voorzien.
+In een bedrijfsomgeving kan deze server veel recources nodig hebben.
+Volgens Microsoft hebben is er 12GB RAM nodig indien sharepoint en Database server (Three-tier farm configuration) gescheiden worden.
+Als we 12GB toekennen voldoen we niet meer aan de vooropgestelde eisen van maximaal 16GB RAM.
+
+
 #### Recources
 
-- 3GB RAM
-- 2 CPU kernen
+- 6GB vRAM
+- 2 vCPU kernen
+- 40 GB vDisk
+
 
 ### Client: Zulu
-
-
-### Server 4: Delta
-
-#### Functionaliteiten
-
-- Besturingssysteem: Windows server 2019 CLI
-- IP-adres: 192.168.23.4/24
-- Rollen
-  - SQL Server 40 GB
-
-#### Motivatie
-
-#### Recources
-
-- 3GB RAM
-- 2 CPU kernen
-
 
 #### Functionaliteiten
 
@@ -108,8 +110,15 @@
 
 #### Motivatie
 
+De keuze van de recources is gebasseerd op de minimale vereisten aangeraden door Microsoft.
+Ik voorzie 25GB disk space ipv 20GB doordat SQL Server Management Studio ook geïnstalleerd wordt.
+<https://support.microsoft.com/en-us/windows/windows-10-system-requirements-6d4e9a79-66bf-7950-467c-795cf0386715>
+
 #### Recources
 
+- 2GB vRAM
+- 1 vCPU kern
+- 25 GB vDisk
 
 ### Adresseringstabel IPV4
 
