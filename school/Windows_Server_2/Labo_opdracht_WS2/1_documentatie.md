@@ -1,4 +1,6 @@
-# Overzicht configuratie
+# Documentatie labo Windows Server 2
+
+Jonas Feys - TIAO
 
 ## Gegevens en vereisten van de opdracht
 
@@ -21,6 +23,27 @@
   - Domain functional level: Windows Server 2016
 - Redundante DNS-server
 
+## Opstelling
+
+Voor deze opdracht maken we gebuik van het NAT network in virtualbox.</br>
+De VM's zitten in een intern netwerk zodanig dat ze kunnen communiceren en uitgaand verkeer is ook mogelijk.
+
+<img src="./images/Voorstelling_opstelling.png" width="500" height="500">
+
+### Adresseringstabel IPV4
+
+dhcp scope PC:      192.168.23.51 - 192.168.23.100
+
+
+| Toestel   | Interface      | IP address      |Subnet Mask    |Default Gateway |DNS server   |
+| :---      | :---           | :---            | :---          |:---            | :---        |
+|Alpha      | NIC            | 192.168.23.2    |255.255.255.0  |192.168.23.1    |------       |
+|Beta       | NIC            | 192.168.23.3    |255.255.255.0  |192.168.23.1    |------       |
+|Charlie    | NIC            | 192.168.23.4    |255.255.255.0  |192.168.23.1    |------       |
+|PC Zulu    | NIC            | dhcp            |dhcp           |dhcp            |192.168.23.2 |
+|host PC    | VirtualBox NIC | 192.168.23.0    |255.255.255.0  |192.168.23.1    |------       |
+|host PC    | NIC            | via ISP         |via ISP        |via ISP         |------       |
+
 ## Keuzes
 
 ### Server 1: Alpha
@@ -36,11 +59,12 @@
 
 #### Motivatie
 
-Het is een logische keuze om zowel de DC, DNS en DHCP rollen op eenzelfde server te installeren.
-Na de installatie van de DC rol op de server kan DNS en DHCP eenvoudig worden geïntegreerd in het script samen met de overige configuratie.
-De keuze van de recources is gebasseerd op de minimale vereisten aangeraden door Microsoft.
-Bij een GUI installatie wordt aangeraden om minimaal 32 GB vrije opslagruimte te hebben.
+Het is een logische keuze om zowel de DC, DNS en DHCP rollen op eenzelfde server te installeren.</br>
+Na de installatie van de DC rol op de server kan DNS en DHCP eenvoudig worden geïntegreerd in het script samen met de overige configuratie. </br>
+De keuze van de recources is gebasseerd op de minimale vereisten aangeraden door Microsoft.</br>
+Bij een GUI installatie wordt aangeraden om minimaal 32 GB vrije opslagruimte te hebben.</br>
 Om voldoende ruimte te hebben voor de overige rollen opteer ik voor 40 GB.
+
 <https://learn.microsoft.com/en-us/windows-server/get-started/hardware-requirements>
 
 #### Recources
@@ -62,10 +86,10 @@ Om voldoende ruimte te hebben voor de overige rollen opteer ik voor 40 GB.
 
 #### Motivatie
 
-DNS en Certification Authority nemen beide niet veel recources in.
-Daarmee maak ik de keuze om deze te combineren met de SQL server.
-Indien blijkt dat ik over voldoende reserve recources beschik om de SQL server apart te zetten, dan maak ik de keuze om dit alsnog te doen.
-Ik combineer ze nu vooral omdat ik nog geen zicht heb op hoeveel recources Sharepoint juist nodig heeft.
+DNS en Certification Authority nemen beide niet veel recources in.</br>
+Daarmee maak ik de keuze om deze te combineren met de SQL server.</br>
+Indien blijkt dat ik over voldoende reserve recources beschik om de SQL server apart te zetten, dan maak ik de keuze om dit alsnog te doen.</br>
+Ik combineer ze nu vooral omdat ik nog geen zicht heb op hoeveel recources Sharepoint juist nodig heeft.</br>
 
 https://www.microsoft.com/en-us/download/details.aspx?id=101064
 
@@ -86,9 +110,8 @@ https://www.microsoft.com/en-us/download/details.aspx?id=101064
 
 #### Motivatie
 
-Het lijkt mij logisch om de sharepoint server volledig apart te voorzien.
-In een bedrijfsomgeving kan deze server veel recources nodig hebben.
-Volgens Microsoft hebben is er 12GB RAM nodig indien sharepoint en Database server (Three-tier farm configuration) gescheiden worden.
+Het lijkt mij logisch om de sharepoint server volledig apart te voorzien want in een bedrijfsomgeving kan deze server veel recources nodig hebben.</br>
+Volgens Microsoft hebben is er 12GB RAM nodig indien sharepoint en Database server (Three-tier farm configuration) gescheiden worden.</br>
 Als we 12GB toekennen voldoen we niet meer aan de vooropgestelde eisen van maximaal 16GB RAM.
 
 
@@ -110,8 +133,9 @@ Als we 12GB toekennen voldoen we niet meer aan de vooropgestelde eisen van maxim
 
 #### Motivatie
 
-De keuze van de recources is gebasseerd op de minimale vereisten aangeraden door Microsoft.
+De keuze van de recources is gebasseerd op de minimale vereisten aangeraden door Microsoft.</br>
 Ik voorzie 25GB disk space ipv 20GB doordat SQL Server Management Studio ook geïnstalleerd wordt.
+
 <https://support.microsoft.com/en-us/windows/windows-10-system-requirements-6d4e9a79-66bf-7950-467c-795cf0386715>
 
 #### Recources
@@ -120,30 +144,7 @@ Ik voorzie 25GB disk space ipv 20GB doordat SQL Server Management Studio ook ge�
 - 1 vCPU kern
 - 25 GB vDisk
 
-### Adresseringstabel IPV4
 
-Default gateway van subnet: 1e vrije adres van subnet <br/>
-NIC addressen voor Bridge Network adapters: laatste adressen van subnet <br/>
-opm: omwille van de nodige adressen voor bridged adapters wordt dhcp-scope beperkt:
-* dhcp scope crew:      192.168.168.1 - 192.168.168.52
-* dhcp scope cast:      192.168.168.65 - 192.168.168.116
-<br/>
-
-| Toestel   | Interface| IP address      |Subnet Mask    |Default Gateway |DNS server     |
-| :---      | :---     | :---            | :---          |:---            | :---          |
-|R1         | G0/0     | via ISP         | via ISP       |-----           |------         |
-|R1         | G0/1.20  | 192.168.168.129 |255.255.255.240|-----           |------         |
-|R1         | G0/1.30  | 192.168.168.1   |255.255.255.192|-----           |------         |
-|R1         | G0/1.40  | 192.168.168.65  |255.255.255.192|-----           |------         |
-|DC         | NIC      | 192.168.168.130 |255.255.255.240|192.168.168.129 |------         |
-|Webserver  | NIC      | 192.168.168.131 |255.255.255.240|192.168.168.129 |------         |
-|e-mail     | NIC      | 192.168.168.132 |255.255.255.240|192.168.168.129 |------         |
-|matrix.org | NIC      | 192.168.168.133 |255.255.255.240|192.168.168.129 |------         |
-|Eigen keuze (Redmine)| NIC      | 192.168.168.134 |255.255.255.240|192.168.168.129 |------         |
-|PC crew 1  | NIC      | dhcp            |dhcp           |dhcp            |192.168.168.130|
-|PC crew 2  | NIC      | dhcp            |dhcp           |dhcp            |192.168.168.130|
-|PC cast 1  | NIC      | dhcp            |dhcp           |dhcp            |192.168.168.130|
-|PC cast 2  | NIC      | dhcp            |dhcp           |dhcp            |192.168.168.130|
 
 ## Info/bronnen
 
