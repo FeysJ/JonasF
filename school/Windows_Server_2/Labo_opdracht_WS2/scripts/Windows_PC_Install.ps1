@@ -53,7 +53,7 @@ ControleerBestand($postInstallScript)
 
 # ingeven naam VM & Hostname:
 
-$vmname = Read-Host "Geef een naam voor de server"
+$vmname = Read-Host "Geef een naam voor de PC"
     if (($vmname -eq "") -or ($null -ne (vboxmanage list vms | Select-String -pattern "\b$vmname\b"))) {
         Write-Host "De ingegeven naam is te kort, leeg (door ingave enter) of de aan te maken VM bestaat al, gelieve deze eerst te verwijderen of hernoem de nieuwe machine."
         Read-host "Script wordt afgebroken. Toets enter"
@@ -78,12 +78,6 @@ $vmname = Read-Host "Geef een naam voor de server"
         $vmdisk = Read-Host "Geef het aantal RAM geheugen voor de machine in tussen 25000 en 40000: "
         }
 
-[int]$versie = Read-Host "Geef 1 in voor core versie of geen 2 in voor de desktop versie"
-    if ($versie -lt 1 -or $versie -gt 2){
-        Write-Host "De ingegeven versie is niet correct."
-        $versie = Read-Host "Geef 1 in voor core versie of geen 2 in voor de desktop versie"
-    }
-
       
 # Onderstaand uitcommentarieren voor testen van variabelen en de tijdrovende aanmaak VM te voorkomen
 # Read-Host "We gaan hier voorlopig stoppen. Script wordt afgebroken. Toets enter"
@@ -91,7 +85,7 @@ $vmname = Read-Host "Geef een naam voor de server"
 
 VBoxManage createvm `
     --name $vmname `
-    --ostype "Windows2019_64" `
+    --ostype "Windows10_64" `
     --register
 
 VBoxManage modifyvm $vmname `
@@ -155,13 +149,6 @@ VBoxManage sharedfolder add $vmname `
     --automount
 write-host "sharedfolder `($gedeeldeMap`) is aanwezig na installatie guest editions"
 
-# in andere scripts stond er --hostname=$vmname.thematrix.local
-# voor een qwerty set-up dien je volgend te wijzigen:
-
-# image-index=1 is core versie
-# image-index=2 is desktop versie
-
-
 
 VBoxManage unattended install $vmname `
     --iso=$iso `
@@ -169,13 +156,14 @@ VBoxManage unattended install $vmname `
     --full-user-name="administrator" `
     --user="administrator" `
     --password="ChangeMe" `
-    --image-index=$versie `
+    --image-index=5 `
     --country="BE" `
+    --key="VK7JG-NPHTM-C97JM-9MPGT-3V66T" `
     --time-zone=CET `
     --install-additions `
     --additions-iso="C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso" `
     --locale=nl_BE `
     --post-install-template=$postInstallScript
-    #--key="VK7JG-NPHTM-C97JM-9MPGT-3V66T" `
+ 
 
 VBoxManage startvm $vmname
